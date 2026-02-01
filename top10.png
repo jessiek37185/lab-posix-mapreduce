@@ -1,0 +1,7 @@
+unzip -p /data/Twitter\ dataset/geoTwitter20-01-01.zip \
+| jq '.place.country_code' \
+| sort \
+| uniq -c \
+| sort -n \
+| tail -n10 \
+| gnuplot -c boxplot.gp top10.png
